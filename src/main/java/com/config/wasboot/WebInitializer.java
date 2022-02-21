@@ -8,8 +8,7 @@ import org.springframework.web.WebApplicationInitializer;
 public class WebInitializer implements WebApplicationInitializer{
 
     public void onStartup(ServletContext servletContext) throws ServletException {
-        // TODO Auto-generated method stub
         
     }
-
+    
 }
