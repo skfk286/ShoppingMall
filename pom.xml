@@ -6,7 +6,7 @@
   <artifactId>MySpringProject</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Ajax.Sample Maven Webapp</name>
+  <name>Shopping Mall Project</name>
   
   <dependencies>
     <dependency>
@@ -34,15 +34,13 @@
         <version>2.13.0</version>
     </dependency>
     
-    <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
     <dependency>
         <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>2.3</version>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.1.0</version>
         <scope>provided</scope>
     </dependency>
-    
-    
+
   </dependencies>
   
   <build>
