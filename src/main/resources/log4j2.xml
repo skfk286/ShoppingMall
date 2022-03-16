@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- '에러추적', '디버깅', '통계', '기록'을 목적으로 log를 기록한다. -->
+<configuration>
+ 
+     <Properties>
+        <!-- 
+        <Property name="LOG_PATTERN">%d{HH:mm:ss.SSSZ} [%t] %-5level %logger{36} - %msg%n</Property>
+        -->
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd hh:mm:ss} %5p [%c] %m%n</Property>
+    </Properties>
+    
+    <Appenders>
+        <!-- 콘솔 -->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            
+        </Console>
+    </Appenders>
+    
+    <loggers>
+        <logger name="org.springframework" level="error" />
+    
+        <root level="debug" additivity="true">
+            <AppenderRef ref="console"/>
+        </root>
+    </loggers>
+ 
+</configuration>

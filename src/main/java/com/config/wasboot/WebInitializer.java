@@ -8,7 +8,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-import org.springframework.context.ApplicationContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -27,7 +28,10 @@ import com.config.web.WebConfig;
  */
 public class WebInitializer implements WebApplicationInitializer{
     
+    private Logger logger = LogManager.getLogger(WebInitializer.class);
+    
     public void onStartup(ServletContext servletContext) throws ServletException {
+        logger.debug("{} onStartup init ", "test");
         registerDispatcherServlet(servletContext);
         registerCharacterEncodingFilter(servletContext);
     }
