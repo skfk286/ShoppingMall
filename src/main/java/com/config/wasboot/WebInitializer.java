@@ -1,5 +1,6 @@
 package com.config.wasboot;
 
+import static com.soff.constant.Default.LOG_KEY;
 import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
@@ -28,12 +29,14 @@ import com.config.web.WebConfig;
  */
 public class WebInitializer implements WebApplicationInitializer{
     
-    private Logger logger = LogManager.getLogger(WebInitializer.class);
+    private final static Logger logger = LogManager.getLogger(WebInitializer.class);
     
     public void onStartup(ServletContext servletContext) throws ServletException {
-        logger.debug("{} onStartup init ", "test");
+        logger.debug("{} onStartup init ", LOG_KEY);
         registerDispatcherServlet(servletContext);
         registerCharacterEncodingFilter(servletContext);
+        
+        logger.debug("{} onStartup end ", LOG_KEY);
     }
     
     private void registerDispatcherServlet(ServletContext servletContext) {
@@ -44,7 +47,7 @@ public class WebInitializer implements WebApplicationInitializer{
                 servletContext.addServlet("DispatcherServlet", new DispatcherServlet(webContext));
         
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/*");
+        dispatcher.addMapping("*.do");
         
         AnnotationConfigWebApplicationContext rootAppContext = new AnnotationConfigWebApplicationContext();
         rootAppContext.register(RootConfig.class);
@@ -60,4 +63,5 @@ public class WebInitializer implements WebApplicationInitializer{
         characterEncodingFilter.setInitParameter("forceEncoding", "true");
         characterEncodingFilter.addMappingForServletNames(EnumSet.allOf(DispatcherType.class), true, "/*");
     }
+    
 }
