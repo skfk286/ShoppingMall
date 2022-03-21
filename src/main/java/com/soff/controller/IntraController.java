@@ -14,7 +14,7 @@ public class IntraController {
     @RequestMapping(value = "/mall/init.do", method = RequestMethod.GET)
     public String init() {
         
-        System.out.println("ok.....");
+        System.out.println("ok....ddd.");
         
         return "index";
     }
