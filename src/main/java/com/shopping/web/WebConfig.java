@@ -35,7 +35,7 @@ import com.shopping.interceptor.CustomHandlerInterceptor;
  */
 @Configuration
 @EnableWebMvc /* Spring Mvc를 구성할 때 필요한 빈 설정들을 자동으로 해주는 어노테이션 */
-@ComponentScan(basePackages = {"com.soff.controller", "com.config.datasource"})
+@ComponentScan(basePackages = "com.shopping")
 public class WebConfig implements WebMvcConfigurer, InitializingBean{
     
     private final static Logger logger = LogManager.getLogger(WebConfig.class);
