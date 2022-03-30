@@ -19,9 +19,9 @@
     </Appenders>
     
     <loggers>
-        <logger name="org.springframework" level="trace" />
+        <logger name="org.springframework" level="error" />
     
-        <root level="trace" additivity="true">
+        <root level="debug" additivity="true">
             <AppenderRef ref="console"/>
         </root>
     </loggers>

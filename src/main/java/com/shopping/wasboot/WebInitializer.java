@@ -1,6 +1,7 @@
-package com.config.wasboot;
+package com.shopping.wasboot;
 
-import static com.soff.constant.Default.LOG_KEY;
+import static com.shopping.constant.Default.LOG_KEY;
+
 import java.util.EnumSet;
 
 import javax.servlet.DispatcherType;
@@ -17,8 +18,8 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.config.web.RootConfig;
-import com.config.web.WebConfig;
+import com.shopping.web.RootConfig;
+import com.shopping.web.WebConfig;
 
 /**
  * Web XML 설정파일
