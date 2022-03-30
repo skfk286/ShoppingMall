@@ -1,4 +1,4 @@
-package com.soff.constant;
+package com.shopping.constant;
 
 public class Default {
     

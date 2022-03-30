@@ -1,6 +1,6 @@
-package com.soff.interceptor;
+package com.shopping.interceptor;
 
-import static com.soff.constant.Default.LOG_KEY;
+import static com.shopping.constant.Default.LOG_KEY;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,6 +1,6 @@
-package com.config.web;
+package com.shopping.web;
 
-import static com.soff.constant.Default.LOG_KEY;
+import static com.shopping.constant.Default.LOG_KEY;
 
 import java.nio.charset.Charset;
 import java.util.List;
@@ -24,7 +24,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soff.interceptor.CustomHandlerInterceptor;
+import com.shopping.interceptor.CustomHandlerInterceptor;
 
 /**
  * dispatcher-Servlet XML 설정파일
@@ -35,7 +35,7 @@ import com.soff.interceptor.CustomHandlerInterceptor;
  */
 @Configuration
 @EnableWebMvc /* Spring Mvc를 구성할 때 필요한 빈 설정들을 자동으로 해주는 어노테이션 */
-@ComponentScan(basePackages = {"com.soff.controller"})
+@ComponentScan(basePackages = {"com.soff.controller", "com.config.datasource"})
 public class WebConfig implements WebMvcConfigurer, InitializingBean{
     
     private final static Logger logger = LogManager.getLogger(WebConfig.class);
