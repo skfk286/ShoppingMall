@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class CustomHandlerInterceptor implements HandlerInterceptor{
     
-    private final static Logger logger = LogManager.getLogger(CustomHandlerInterceptor.class);
+    private final Logger logger = LogManager.getLogger(this.getClass());
     
     /*
      * Controller로 보내기 전에 처리하는 인터셉터

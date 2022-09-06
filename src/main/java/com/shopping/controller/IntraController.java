@@ -9,13 +9,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IntraController {
     
-    private final static Logger logger = LogManager.getLogger(IntraController.class);
-    
+    private final Logger logger = LogManager.getLogger(this.getClass());
+        
+    //test용
     @RequestMapping(value = "/mall/init.do", method = RequestMethod.GET)
     public String init() {
         
-        System.out.println("ok....ddd.");
+        return "/index";
+    }
+    
+    
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String intra() {
+        //ObjectUtils.isEmpty("a");
         
-        return "index";
+        return "redirect:/app/home";
+    }
+    
+    @RequestMapping(value = "/app/home", method = RequestMethod.GET)
+    public String app() {
+        //ObjectUtils.isEmpty("a");
+        
+        return "/app/home";
+    }
+    
+    
+    @RequestMapping(value = "/auth/login", method = RequestMethod.GET)
+    public String login() {
+        
+        return "/auth/login";
     }
 }

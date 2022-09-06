@@ -18,10 +18,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  * @since 2022.03.14
  */
 @Configuration
-@PropertySource("classpath:/application.properties")
+@PropertySource(value = "classpath:/application.properties", ignoreResourceNotFound = true)
 public class RootConfig {
 
-    private final static Logger Logger = LogManager.getLogger(RootConfig.class);
+    private final Logger Logger = LogManager.getLogger(this.getClass());
 
     @Autowired
     Environment env;
