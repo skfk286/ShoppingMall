@@ -17,6 +17,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -38,7 +39,7 @@ import com.shopping.interceptor.CustomHandlerInterceptor;
 @ComponentScan(basePackages = "com.shopping")
 public class WebConfig implements WebMvcConfigurer, InitializingBean{
     
-    private final static Logger logger = LogManager.getLogger(WebConfig.class);
+    private final Logger logger = LogManager.getLogger(this.getClass());
     
     // 인터셉터 설정
     public void addInterceptors(InterceptorRegistry registry) {
@@ -82,4 +83,13 @@ public class WebConfig implements WebMvcConfigurer, InitializingBean{
         logger.info("{} afterPropertiesSet() - {}", LOG_KEY, this.getClass().getName());
     }
     
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
+        registry.addResourceHandler("/image/**").addResourceLocations("/resources/image/");
+        if (logger.isDebugEnabled()) {
+            //logger.debug("{} handle resource = handler[{}] location[{}]", LOG_KEY, handler, location);
+        }
+    }
 }

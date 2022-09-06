@@ -30,7 +30,7 @@ import com.shopping.web.WebConfig;
  */
 public class WebInitializer implements WebApplicationInitializer{
     
-    private final static Logger logger = LogManager.getLogger(WebInitializer.class);
+    private final Logger logger = LogManager.getLogger(this.getClass());
     
     public void onStartup(ServletContext servletContext) throws ServletException {
         logger.debug("{} onStartup init ", LOG_KEY);
@@ -48,7 +48,7 @@ public class WebInitializer implements WebApplicationInitializer{
                 servletContext.addServlet("DispatcherServlet", new DispatcherServlet(webContext));
         
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("*.do");
+        dispatcher.addMapping("/");
         
         AnnotationConfigWebApplicationContext rootAppContext = new AnnotationConfigWebApplicationContext();
         rootAppContext.register(RootConfig.class);
@@ -57,6 +57,10 @@ public class WebInitializer implements WebApplicationInitializer{
         servletContext.addListener(listener);
     }
     
+    /**
+     * 웹 요청과 응답에 대한 인코딩 처리
+     * @param servletContext
+     */
     private void  registerCharacterEncodingFilter(ServletContext servletContext) {
         FilterRegistration.Dynamic characterEncodingFilter = 
                 servletContext.addFilter("encodingFilter", new CharacterEncodingFilter());
