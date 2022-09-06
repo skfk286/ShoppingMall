@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.spring</groupId>
-    <artifactId>MySpringProject</artifactId>
+    <artifactId>ShoppingMall</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>Shopping Mall Project</name>
