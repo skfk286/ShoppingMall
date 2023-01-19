@@ -19,9 +19,14 @@
     </Appenders>
     
     <loggers>
-        <logger name="org.springframework" level="error" />
+        <logger name="org.springframework"          level="info" />
+        <logger name="org.springframework.jdbc"     level="info" />
+        <logger name="org.springframework.jndi"     level="info" />
+        <logger name="org.springframework.web"      level="trace" />
+        
+        <logger name="com.shopping" level="trace" />
     
-        <root level="debug" additivity="true">
+        <root level="trace" additivity="false">
             <AppenderRef ref="console"/>
         </root>
     </loggers>

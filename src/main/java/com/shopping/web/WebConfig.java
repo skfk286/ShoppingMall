@@ -15,6 +15,8 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -85,11 +87,18 @@ public class WebConfig implements WebMvcConfigurer, InitializingBean{
     
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
-        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
-        registry.addResourceHandler("/image/**").addResourceLocations("/resources/image/");
+//        registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
+//        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
+//        registry.addResourceHandler("/image/**").addResourceLocations("/resources/image/");
         if (logger.isDebugEnabled()) {
             //logger.debug("{} handle resource = handler[{}] location[{}]", LOG_KEY, handler, location);
         }
     }
+    
+//    @Override
+//    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+//        
+//        
+//        resolvers.add(null);
+//    }
 }
