@@ -17,33 +17,28 @@ public class BoardServiceImpl implements BoardService {
     
     @Override
     public List<BoardVo> selectAll() {
-        List<BoardVo> list = boardMapper.selectAll();
-        
-        return list;
+        return boardMapper.selectAll();
     }
 
     @Override
-    public BoardVo select() {
-        BoardVo data = boardMapper.select();
-        return data;
+    public BoardVo selectBySn(Long sn) {
+        return boardMapper.selectBySn(sn);
     }
 
     @Override
-    public Integer insert() {
-        
-        return null;
+    public BoardVo insert(BoardVo boardVo) {
+        boardMapper.insert(boardVo);
+        return boardVo;
     }
 
     @Override
-    public Integer update() {
-        // TODO Auto-generated method stub
-        return null;
+    public BoardVo update(BoardVo boardVo) {
+        boardMapper.update(boardVo);
+        return boardVo;
     }
 
     @Override
-    public Integer delete() {
-        // TODO Auto-generated method stub
-        return null;
+    public void delete(Long sn) {
+        boardMapper.delete(sn);
     }
-
 }

@@ -1,49 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.shopping.mapper.BoardMapper">
-<select id="selectAll" resultType="com.shopping.vo.BoardVo">
-SELECT
-        SN          /* 등록번호 */
-      , TITLE       /* 등록제목 */
-      , CN          /* 등록내용 */
-      , MODIFY_DATE /* 등록일시 */
-      , FILE_SN     /*  */
-   FROM BOARD
-</select>
-<select id="select" parameterType="com.shopping.vo.BoardVo" resultType="com.shopping.vo.BoardVo">
-SELECT
-        SN          /* 등록번호 */
-      , TITLE       /* 등록제목 */
-      , CN          /* 등록내용 */
-      , MODIFY_DATE /* 등록일시 */
-      , FILE_SN     /*  */
-   FROM BOARD
-   WHERE
-        SN = #{sn}
-</select>
-<insert id="insert" parameterType="com.shopping.vo.BoardVo">
-INSERT INTO BOARD(
-          SN          /* 등록번호 */
-        , TITLE       /* 등록제목 */
-        , CN          /* 등록내용 */
-        , MODIFY_DATE /* 등록일시 */
-        , FILE_SN     /*  */
-    ) VALUES (
-          #{sn}
-        , #{title}
-        , #{cn}
-        , #{modifyDate}
-        , #{fileSn}
-    )
-</insert>
+    <select id="selectAll" resultType="com.shopping.vo.BoardVo">
+        SELECT
+            SN          /* 등록번호 */
+            , TITLE       /* 등록제목 */
+            , CN          /* 등록내용 */
+            , MODIFY_DATE /* 등록일시 */
+            , FILE_SN     /*  */
+        FROM BOARD
+    </select>
 
-<update id="update" parameterType="com.shopping.vo.BoardVo">
-UPDATE SET title = #{title}, cn = #{cn}
-</update>
+    <select id="selectBySn" parameterType="java.lang.Long" resultType="com.shopping.vo.BoardVo">
+        SELECT
+            SN          /* 등록번호 */
+            , TITLE       /* 등록제목 */
+            , CN          /* 등록내용 */
+            , MODIFY_DATE /* 등록일시 */
+            , FILE_SN     /*  */
+        FROM BOARD
+        WHERE
+            SN = #{sn}
+    </select>
 
-<delete id="delete" parameterType="com.shopping.vo.BoardVo">
-    WHERE
-        SN = #{sn}                  /* 등록번호 */
-</delete>
+    <insert id="insert" parameterType="com.shopping.vo.BoardVo">
+        INSERT INTO BOARD(
+            SN          /* 등록번호 */
+            , TITLE       /* 등록제목 */
+            , CN          /* 등록내용 */
+            , MODIFY_DATE /* 등록일시 */
+            , FILE_SN     /*  */
+        ) VALUES (
+            #{sn}
+            , #{title}
+            , #{cn}
+            , SYSDATE    <!-- 현재 시간으로 설정합니다. Oracle 기준 -->
+            , #{fileSn}
+        )
+    </insert>
 
+    <update id="update" parameterType="com.shopping.vo.BoardVo">
+        UPDATE BOARD SET 
+            TITLE = #{title}
+            , CN = #{cn}
+        WHERE
+            SN = #{sn}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM BOARD
+        WHERE
+            SN = #{sn}
+    </delete>
 </mapper>
