@@ -10,6 +10,14 @@ public class BoardVo {
     private Date modifyDate;
     private Long fileSn;
     
+    public BoardVo(Long sn, String title, String cn, Date modifyDate, Long fileSn) {
+        super();
+        this.sn = sn;
+        this.title = title;
+        this.cn = cn;
+        this.modifyDate = modifyDate;
+        this.fileSn = fileSn;
+    }
     public Long getSn() {
         return sn;
     }

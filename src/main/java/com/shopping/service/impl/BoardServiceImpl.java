@@ -26,15 +26,13 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public BoardVo insert(BoardVo boardVo) {
+    public void insert(BoardVo boardVo) {
         boardMapper.insert(boardVo);
-        return boardVo;
     }
 
     @Override
-    public BoardVo update(BoardVo boardVo) {
+    public void update(BoardVo boardVo) {
         boardMapper.update(boardVo);
-        return boardVo;
     }
 
     @Override
