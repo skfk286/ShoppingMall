@@ -10,6 +10,8 @@ public class BoardVo {
     private Date modifyDate;
     private Long fileSn;
     
+    public BoardVo() {}
+    
     public BoardVo(Long sn, String title, String cn, Date modifyDate, Long fileSn) {
         super();
         this.sn = sn;
