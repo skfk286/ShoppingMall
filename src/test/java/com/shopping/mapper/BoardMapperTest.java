@@ -18,8 +18,8 @@ import com.shopping.wasboot.WebInitializer;
 import com.shopping.web.RootConfig;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = WebInitializer.class)
-@ContextConfiguration(classes = {RootConfig.class, MybatisConfiguration.class}) // Add your configuration class here
+// @SpringBootTest(classes = WebInitializer.class) // ContextConfiguration 으로 대체 가능
+@ContextConfiguration(classes = {WebInitializer.class, RootConfig.class, MybatisConfiguration.class}) // Add your configuration class here
 // @TestPropertySource(locations = "classpath:application.properties")
 // @Transactional
 public class BoardMapperTest {
