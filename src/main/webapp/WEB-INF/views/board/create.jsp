@@ -9,8 +9,6 @@
     <h1>게시물 추가</h1>
     <form action="/board/create" method="post">
         <!-- sn 값은 사용자가 직접 입력하지 않고 서버에서 생성합니다. -->
-        <input type="hidden" name="sn" value="0">
-
         <label for="title">제목:</label>
         <input type="text" id="title" name="title"><br>
 
