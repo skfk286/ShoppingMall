@@ -28,12 +28,12 @@ public class MybatisConfiguration {
                         .getResources("classpath:mapper/**/*Mapper.xml")
                 );
         sqlSessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
+
         return sqlSessionFactory.getObject();
     }
-    
+
     @Bean
     public SqlSessionTemplate sqlSession(SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }
-

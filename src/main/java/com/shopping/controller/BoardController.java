@@ -27,6 +27,7 @@ public class BoardController {
         logger.info("getAllBoard() 메서드 호출");
         List<BoardVo> boardList = boardService.selectAll();
         model.addAttribute("boardList", boardList);
+        
         return "board/list"; // board/list.jsp로 이동
     }
 
