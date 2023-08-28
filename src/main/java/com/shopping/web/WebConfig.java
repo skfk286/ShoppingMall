@@ -92,6 +92,13 @@ public class WebConfig implements WebMvcConfigurer, InitializingBean{
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
         registry.addResourceHandler("/image/**").addResourceLocations("/resources/image/");
+        
+        /* springfox swagger mapping 설정 추가 */
+        registry.addResourceHandler("/swagger-ui.html**")
+            .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+            .addResourceLocations("classpath:/META-INF/resources/webjars/");
+        
         if (logger.isDebugEnabled()) {
             //logger.debug("{} handle resource = handler[{}] location[{}]", LOG_KEY, handler, location);
         }
